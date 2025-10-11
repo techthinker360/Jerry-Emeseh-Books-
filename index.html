@@ -3,45 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jerry Emeseh Books offers inspiring Christian books and free tracts for spiritual growth, job revival, and evangelism. Discover life-changing messages from Jesus Christ.">
+    <meta name="keywords" content="Christian books, Jesus messages, revival, evangelization, success principles, gospel truth, free tracts">
+    <meta property="og:title" content="Jerry Emeseh Books - Inspiring Christian Reads">
+    <meta property="og:description" content="Explore divine messages, revival guides, and free Christian tracts for global faith.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Jerry+Emeseh+Books">
+    <meta property="og:url" content="https://jerryemesehbooks.org">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Jerry Emeseh Books - Inspiring Christian Reads</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Christian icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts for professional Christian feel (serif for elegance) -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Plausible Analytics -->
+    <script defer data-domain="jerryemesehbooks.org" src="https://plausible.io/js/script.js"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             color: #333;
+            background-color: #f8f9fa; /* Light background for purity */
         }
 
         h1, h2, h5 {
             font-family: 'Playfair Display', serif;
+            color: #0d47a1; /* Deep blue for faith */
         }
 
         .hero {
             background: linear-gradient(to right, #e0f7fa, #ffffff);
             color: #0d47a1;
             position: relative;
+            padding: 100px 0; /* More spacious */
         }
 
         .card {
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #ffd700; /* Gold border for holiness */
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(13, 71, 161, 0.2);
         }
 
         .card-img-top {
             height: 300px;
             object-fit: cover;
+            loading: lazy; /* Lazy loading for performance */
         }
 
         .footer img {
-            border-radius: 50%; /* Sharp stroke for logo */
+            border-radius: 50%;
+            border: 2px solid #ffd700; /* Gold stroke */
         }
 
-        /* Subtle Christian motif: faint cross background */
+        /* Subtle Christian motif: faint cross background in hero */
         .hero::before {
             content: '';
             position: absolute;
@@ -50,6 +70,27 @@
             width: 100%;
             height: 100%;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M50 0v100M0 50h100" stroke="%230d47a1" stroke-width="5"/></svg>') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        /* Dove icon for peace in navbar */
+        .navbar-brand::before {
+            content: '\f56b'; /* Font Awesome dove icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 10px;
+            color: #ffd700; /* Gold */
+        }
+
+        /* Bible verse overlay in sections */
+        .section-verse {
+            position: relative;
+            color: #0d47a1;
+            opacity: 0.1;
+            font-size: 3rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
             z-index: -1;
         }
 
@@ -63,29 +104,102 @@
             flex-grow: 1;
         }
 
-        /* Button styling */
+        /* Button styling with cross icon */
+        .btn-primary::before, .btn-success::before {
+            content: '\f067'; /* Small cross icon */
+            font-family: 'Font Awesome 6 Free';
+            margin-right: 5px;
+        }
+
         .btn-primary, .btn-success {
             border-radius: 20px;
+            background-color: #0d47a1;
+            border-color: #ffd700;
+        }
+
+        /* Back to Top Button with arrow up icon */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #0d47a1;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        #backToTop:hover {
+            background-color: #555;
+        }
+
+        /* About section styling */
+        .about {
+            background-color: #ffffff;
+            padding: 50px 0;
+            border-top: 1px solid #e0f7fa;
+            border-bottom: 1px solid #e0f7fa;
+        }
+
+        .about img {
+            border: 3px solid #ffd700;
+            border-radius: 50%;
+        }
+
+        /* Responsive Header Adjustments */
+        .navbar {
+            padding: 0.5rem 1rem; /* Default padding */
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.25rem 0.5rem; /* Smaller padding on mobile */
+            }
+            .navbar-brand {
+                font-size: 1.2rem; /* Smaller brand text */
+            }
+            .navbar-nav .nav-link {
+                font-size: 0.9rem; /* Compact nav links */
+                padding: 0.5rem 0.75rem !important;
+            }
+            .navbar-toggler {
+                padding: 0.25rem 0.5rem;
+                font-size: 1rem;
+            }
+            /* Stack nav items vertically on collapse */
+            .navbar-collapse {
+                background-color: rgba(255, 255, 255, 0.95);
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+            .navbar-nav .nav-link {
+                font-size: 0.85rem;
+            }
         }
     </style>
-    <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-linBdEh-vl2FZj8nb5a6x.js"></script>
-<script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
-</script>
-
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
+    <!-- Navbar (Fixed: Corrected Bootstrap classes and structure) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">Jerry Emeseh Books</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About the Author</a></li>
                     <li class="nav-item"><a class="nav-link" href="#books">Books</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tracts">Explore Tracts</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -104,6 +218,21 @@
         </div>
     </section>
 
+    <!-- About the Author Section -->
+    <section class="about py-5" id="about">
+        <div class="container">
+            <h2 class="text-center mb-4">About the Author</h2>
+            <div class="row align-items-center">
+                <div class="col-md-4 text-center">
+                    <img src="https://via.placeholder.com/200x200?text=Author+Photo" alt="Jerry Emeseh" class="img-fluid mb-3" loading="lazy">
+                </div>
+                <div class="col-md-8">
+                    <p>Jerry Emeseh is a dedicated Christian author and minister passionate about spreading the Gospel and igniting spiritual revival. With a deep commitment to biblical truth, Jerry's writings focus on calling believers back to God's ways, addressing moral decline, and promoting global evangelization. As the founder of Jesus Andreious Army, Jerry leads efforts to equip the church for impactful ministry. His books and tracts are inspired by divine messages, aiming to transform lives and strengthen faith. Based in Abuja, Nigeria, Jerry continues to serve through teaching, writing, and partnership initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Books Section -->
     <section class="books py-5 bg-light" id="books">
         <div class="container">
@@ -112,16 +241,16 @@
                 <!-- Book 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+1" class="card-img-top" alt="Faith Journey">
+                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+1" class="card-img-top" alt="Jesus message and warning to American churches and ministers" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title">Faith Journey: Walking with God</h5>
-                            <p class="card-text">An inspiring guide to deepening your faith through daily devotionals.</p>
+                            <h5 class="card-title">Jesus Message and Warning to American Churches and Ministers</h5>
+                            <p class="card-text">This book delivers a divine message from Jesus Christ to Americans, their churches, and ministers, highlighting the moral decline in a nation once called “God’s own country.” Despite technological advancements and the motto “In God We Trust,” society has turned away from God, leading to its current state. Jesus expresses deep concern for the faithful remnants who uphold truth and righteousness. It serves as a warning and call to repentance for churches, pastors, and believers worldwide to return to God’s ways. The teachings aim to benefit present and future generations until Christ's return.</p>
                             <p class="fw-bold">₦5,000</p>
                             <!-- PayPal Buy Now Button -->
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <input type="hidden" name="business" value="your-paypal-email@example.com">
-                                <input type="hidden" name="item_name" value="Faith Journey Ebook">
+                                <input type="hidden" name="item_name" value="Jesus Message and Warning Ebook">
                                 <input type="hidden" name="amount" value="5000.00">
                                 <input type="hidden" name="currency_code" value="NGN">
                                 <input type="hidden" name="return" value="your-success-url">
@@ -136,15 +265,15 @@
                 <!-- Book 2 -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+2" class="card-img-top" alt="Grace Abounds">
+                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+2" class="card-img-top" alt="Igniting the fire of God's revival across Europe" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title">Grace Abounds: Stories of Redemption</h5>
-                            <p class="card-text">Real-life testimonies of God's unending grace.</p>
+                            <h5 class="card-title">Igniting the Fire of God's Revival Across Europe</h5>
+                            <p class="card-text">This book stresses that revival is a divine awakening for spiritually dead or lukewarm believers, akin to the Laodicean church in Revelation 3. Revival rekindles God’s fire and zeal, distinct from mere religious activity. While sinners need salvation, backslidden believers require revival to restore passion for God. It originates from the Holy Spirit, bringing transformation, earthly impact, and heavenly joy. Without revival, the church remains ineffective; with it, spiritual life and power are renewed.</p>
                             <p class="fw-bold">₦5,000</p>
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <input type="hidden" name="business" value="your-paypal-email@example.com">
-                                <input type="hidden" name="item_name" value="Grace Abounds Ebook">
+                                <input type="hidden" name="item_name" value="Igniting the Fire Ebook">
                                 <input type="hidden" name="amount" value="5000.00">
                                 <input type="hidden" name="currency_code" value="NGN">
                                 <input type="hidden" name="return" value="your-success-url">
@@ -159,15 +288,15 @@
                 <!-- Book 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+3" class="card-img-top" alt="Prayer Power">
+                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+3" class="card-img-top" alt="Jesus and the apostles model for global evangelization" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title">Prayer Power: Unlocking Miracles</h5>
-                            <p class="card-text">Practical steps to transform your prayer life.</p>
+                            <h5 class="card-title">Jesus and the Apostles Model for Global Evangelization</h5>
+                            <p class="card-text">This book critiques how many Christians prioritize personal blessings over Jesus' mission of world evangelization. Few dedicate themselves to saving the lost, instead seeking God for selfish needs. It urges readers to join the rare few who share God’s heart for spreading the gospel. Such individuals please God, as exemplified by Timothy in the Bible. The focus is on serving Christ’s kingdom through global outreach.</p>
                             <p class="fw-bold">₦5,000</p>
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <input type="hidden" name="business" value="your-paypal-email@example.com">
-                                <input type="hidden" name="item_name" value="Prayer Power Ebook">
+                                <input type="hidden" name="item_name" value="Global Evangelization Ebook">
                                 <input type="hidden" name="amount" value="5000.00">
                                 <input type="hidden" name="currency_code" value="NGN">
                                 <input type="hidden" name="return" value="your-success-url">
@@ -182,15 +311,15 @@
                 <!-- Book 4 -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+4" class="card-img-top" alt="Holy Wisdom">
+                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+4" class="card-img-top" alt="Maximizing your thought process and acting to attain success and remaining successful" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title">Holy Wisdom: Biblical Insights</h5>
-                            <p class="card-text">Deep dives into scripture for everyday wisdom.</p>
+                            <h5 class="card-title">Maximizing Your Thought Process and Acting to Attain Success and Remaining Successful</h5>
+                            <p class="card-text">This book provides a practical guide to achieving all-round success in spirit, soul, and body. True success encompasses more than wealth or fame; it's about balanced fulfillment. Many succeed in one area but fail in others, resulting in incomplete success. By applying its principles, readers can grow spiritually, maintain emotional and mental health, and care for physical well-being. It offers actionable steps for total success and a purposeful life.</p>
                             <p class="fw-bold">₦5,000</p>
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <input type="hidden" name="business" value="your-paypal-email@example.com">
-                                <input type="hidden" name="item_name" value="Holy Wisdom Ebook">
+                                <input type="hidden" name="item_name" value="Maximizing Success Ebook">
                                 <input type="hidden" name="amount" value="5000.00">
                                 <input type="hidden" name="currency_code" value="NGN">
                                 <input type="hidden" name="return" value="your-success-url">
@@ -205,15 +334,15 @@
                 <!-- Book 5 -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+5" class="card-img-top" alt="Spirit Led">
+                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+5" class="card-img-top" alt="Is following Jesus and Christianity become a joke in this generation?" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title">Spirit Led: Living by the Holy Spirit</h5>
-                            <p class="card-text">Guidance on discerning God's voice in your life.</p>
+                            <h5 class="card-title">Is Following Jesus and Christianity Become a Joke in This Generation?</h5>
+                            <p class="card-text">As Jesus entered Jerusalem amid cheers of “Hosanna,” the crowd hailed him as king, expecting earthly rule. The disciples shared this excitement, but Jesus wept over the city's blindness to peace and salvation. He foresaw Jerusalem's destruction due to rejecting him as Messiah. This moment illustrates that while people seek external change, Jesus brings spiritual transformation. His tears reflect deep love and sorrow when humanity misses his true purpose.</p>
                             <p class="fw-bold">₦5,000</p>
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <input type="hidden" name="business" value="your-paypal-email@example.com">
-                                <input type="hidden" name="item_name" value="Spirit Led Ebook">
+                                <input type="hidden" name="item_name" value="Following Jesus Ebook">
                                 <input type="hidden" name="amount" value="5000.00">
                                 <input type="hidden" name="currency_code" value="NGN">
                                 <input type="hidden" name="return" value="your-success-url">
@@ -228,15 +357,15 @@
                 <!-- Book 6 -->
                 <div class="col-md-4 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+6" class="card-img-top" alt="Eternal Hope">
+                        <img src="https://via.placeholder.com/300x400?text=Book+Cover+6" class="card-img-top" alt="The truth of the gospel as it relates to the following subjects in scriptures for believers in Christ" loading="lazy">
                         <div class="card-body">
-                            <h5 class="card-title">Eternal Hope: Heaven's Promise</h5>
-                            <p class="card-text">Exploring the hope of eternal life through Christ.</p>
+                            <h5 class="card-title">The Truth of the Gospel as It Relates to the Following Subjects in Scriptures for Believers in Christ</h5>
+                            <p class="card-text">This book addresses misunderstood biblical subjects like worldliness, legalism, faith and works, sin, redemption, perfection, grace, eternal security, tithing, first fruits, offerings, prosperity gospel, divorce, remarriage, polygamy, Paul's epistles versus Christ's teachings, and women's ordination as pastors. Guided by the Holy Spirit, it presents accurate scriptural perspectives. These topics are crucial for strengthening believers' walk toward eternity. Readers should approach prayerfully, allowing the Holy Spirit to enlighten them. The goal is to eliminate confusion, confirm sound doctrine, and foster a fruitful Christian life.</p>
                             <p class="fw-bold">₦5,000</p>
                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <input type="hidden" name="business" value="your-paypal-email@example.com">
-                                <input type="hidden" name="item_name" value="Eternal Hope Ebook">
+                                <input type="hidden" name="item_name" value="Truth of the Gospel Ebook">
                                 <input type="hidden" name="amount" value="5000.00">
                                 <input type="hidden" name="currency_code" value="NGN">
                                 <input type="hidden" name="return" value="your-success-url">
@@ -249,10 +378,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        процесса</div>
     </section>
 
-    <!-- Tracts Section -->
+    <!-- Tracts Section (20 tracts) -->
     <section class="tracts py-5" id="tracts">
         <div class="container">
             <h2 class="text-center mb-4">Our Free Tracts</h2>
@@ -260,7 +389,7 @@
                 <!-- Tract 1 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+1" class="card-img-top" alt="Tract 1">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+1" class="card-img-top" alt="Tract 1" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 1: The Path to Salvation</h5>
                             <p class="card-text">A brief guide to understanding God's plan for you.</p>
@@ -274,7 +403,7 @@
                 <!-- Tract 2 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+2" class="card-img-top" alt="Tract 2">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+2" class="card-img-top" alt="Tract 2" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 2: God's Love</h5>
                             <p class="card-text">Exploring the depth of divine love.</p>
@@ -288,7 +417,7 @@
                 <!-- Tract 3 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+3" class="card-img-top" alt="Tract 3">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+3" class="card-img-top" alt="Tract 3" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 3: Forgiveness in Christ</h5>
                             <p class="card-text">How to receive and give forgiveness.</p>
@@ -302,7 +431,7 @@
                 <!-- Tract 4 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+4" class="card-img-top" alt="Tract 4">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+4" class="card-img-top" alt="Tract 4" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 4: Eternal Life</h5>
                             <p class="card-text">What the Bible says about heaven.</p>
@@ -316,11 +445,11 @@
                 <!-- Tract 5 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+5" class="card-img-top" alt="Tract 5">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+5" class="card-img-top" alt="Tract 5" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 5: Prayer Essentials</h5>
                             <p class="card-text">Building a strong prayer habit.</p>
-                            <a href="tract5.pdf" download class="btn btn-primary">Download</a>
+                            < a href="tract5.pdf" download class="btn btn-primary">Download</a>
                         </div>
                         <div class="card-footer">
                             <div id="disqus_thread_tract5"></div>
@@ -330,7 +459,7 @@
                 <!-- Tract 6 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+6" class="card-img-top" alt="Tract 6">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+6" class="card-img-top" alt="Tract 6" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 6: Faith Basics</h5>
                             <p class="card-text">Foundations of Christian faith.</p>
@@ -344,7 +473,7 @@
                 <!-- Tract 7 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+7" class="card-img-top" alt="Tract 7">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+7" class="card-img-top" alt="Tract 7" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 7: Holy Spirit Guidance</h5>
                             <p class="card-text">Living led by the Spirit.</p>
@@ -358,7 +487,7 @@
                 <!-- Tract 8 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+8" class="card-img-top" alt="Tract 8">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+8" class="card-img-top" alt="Tract 8" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 8: Overcoming Sin</h5>
                             <p class="card-text">Victory through Christ.</p>
@@ -372,7 +501,7 @@
                 <!-- Tract 9 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+9" class="card-img-top" alt="Tract 9">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+9" class="card-img-top" alt="Tract 9" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 9: Bible Study Tips</h5>
                             <p class="card-text">Effective ways to study Scripture.</p>
@@ -386,7 +515,7 @@
                 <!-- Tract 10 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+10" class="card-img-top" alt="Tract 10">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+10" class="card-img-top" alt="Tract 10" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 10: Sharing Your Faith</h5>
                             <p class="card-text">Evangelism made simple.</p>
@@ -400,7 +529,7 @@
                 <!-- Tract 11 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+11" class="card-img-top" alt="Tract 11">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+11" class="card-img-top" alt="Tract 11" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 11: Peace in Trials</h5>
                             <p class="card-text">Finding calm in storms.</p>
@@ -414,10 +543,10 @@
                 <!-- Tract 12 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+12" class="card-img-top" alt="Tract 12">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+12" class="card-img-top" alt="Tract 12" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 12: Joy in the Lord</h5>
-                            <p class="card-text">Discovering true happiness.</p>
+                            <p class="card-text">Discovering true happiness, happiness.</p>
                             <a href="tract12.pdf" download class="btn btn-primary">Download</a>
                         </div>
                         <div class="card-footer">
@@ -428,7 +557,7 @@
                 <!-- Tract 13 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+13" class="card-img-top" alt="Tract 13">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+13" class="card-img-top" alt="Tract 13" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 13: Humility Before God</h5>
                             <p class="card-text">The power of a humble heart.</p>
@@ -442,7 +571,7 @@
                 <!-- Tract 14 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+14" class="card-img-top" alt="Tract 14">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+14" class="card-img-top" alt="Tract 14" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 14: Serving Others</h5>
                             <p class="card-text">Following Jesus' example.</p>
@@ -456,7 +585,7 @@
                 <!-- Tract 15 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+15" class="card-img-top" alt="Tract 15">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+15" class="card-img-top" alt="Tract 15" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 15: God's Promises</h5>
                             <p class="card-text">Standing on His word.</p>
@@ -470,7 +599,7 @@
                 <!-- Tract 16 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+16" class="card-img-top" alt="Tract 16">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+16" class="card-img-top" alt="Tract 16" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 16: Repentance</h5>
                             <p class="card-text">Turning back to God.</p>
@@ -484,7 +613,7 @@
                 <!-- Tract 17 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+17" class="card-img-top" alt="Tract 17">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+17" class="card-img-top" alt="Tract 17" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 17: Baptism</h5>
                             <p class="card-text">The significance of water baptism.</p>
@@ -498,7 +627,7 @@
                 <!-- Tract 18 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+18" class="card-img-top" alt="Tract 18">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+18" class="card-img-top" alt="Tract 18" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 18: Church Community</h5>
                             <p class="card-text">The importance of fellowship.</p>
@@ -512,7 +641,7 @@
                 <!-- Tract 19 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+19" class="card-img-top" alt="Tract 19">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+19" class="card-img-top" alt="Tract 19" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 19: Stewardship</h5>
                             <p class="card-text">Managing God's resources.</p>
@@ -526,7 +655,7 @@
                 <!-- Tract 20 -->
                 <div class="col-md-3 mb-4">
                     <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+20" class="card-img-top" alt="Tract 20">
+                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+20" class="card-img-top" alt="Tract 20" loading="lazy">
                         <div class="card-body">
                             <h5 class="card-title">Tract 20: End Times</h5>
                             <p class="card-text">Understanding prophecy.</p>
@@ -534,62 +663,6 @@
                         </div>
                         <div class="card-footer">
                             <div id="disqus_thread_tract20"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tract 21 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+21" class="card-img-top" alt="Tract 21">
-                        <div class="card-body">
-                            <h5 class="card-title">Tract 21: Miracles Today</h5>
-                            <p class="card-text">Expecting the supernatural.</p>
-                            <a href="tract21.pdf" download class="btn btn-primary">Download</a>
-                        </div>
-                        <div class="card-footer">
-                            <div id="disqus_thread_tract21"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tract 22 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+22" class="card-img-top" alt="Tract 22">
-                        <div class="card-body">
-                            <h5 class="card-title">Tract 22: Family Faith</h5>
-                            <p class="card-text">Building godly homes.</p>
-                            <a href="tract22.pdf" download class="btn btn-primary">Download</a>
-                        </div>
-                        <div class="card-footer">
-                            <div id="disqus_thread_tract22"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tract 23 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+23" class="card-img-top" alt="Tract 23">
-                        <div class="card-body">
-                            <h5 class="card-title">Tract 23: Healing Power</h5>
-                            <p class="card-text">God's provision for health.</p>
-                            <a href="tract23.pdf" download class="btn btn-primary">Download</a>
-                        </div>
-                        <div class="card-footer">
-                            <div id="disqus_thread_tract23"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tract 24 -->
-                <div class="col-md-3 mb-4">
-                    <div class="card shadow border-0 h-100">
-                        <img src="https://via.placeholder.com/300x400?text=Tract+Cover+24" class="card-img-top" alt="Tract 24">
-                        <div class="card-body">
-                            <h5 class="card-title">Tract 24: Second Coming</h5>
-                            <p class="card-text">Preparing for Christ's return.</p>
-                            <a href="tract24.pdf" download class="btn btn-primary">Download</a>
-                        </div>
-                        <div class="card-footer">
-                            <div id="disqus_thread_tract24"></div>
                         </div>
                     </div>
                 </div>
@@ -604,24 +677,24 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="mailto:author@example.com">Email: author@example.com</a></li>
-                        <li class="list-group-item"><a href="https://wa.me/1234567890">WhatsApp: +123-456-7890</a></li>
-                        <li class="list-group-item"><a href="https://facebook.com/author">Facebook</a></li>
-                        <li class="list-group-item"><a href="tel:+1234567890">Phone: +123-456-7890</a></li>
-                        <li class="list-group-item"><a href="https://youtube.com/author">YouTube</a></li>
-                        <li class="list-group-item"><a href="https://instagram.com/author">Instagram (or your other social)</a></li>
+                        <li class="list-group-item"><i class="fas fa-envelope me-2"></i><a href="mailto:author@example.com">Email: author@example.com</a></li>
+                        <li class="list-group-item"><i class="fab fa-whatsapp me-2"></i><a href="https://wa.me/2347035383837">WhatsApp</a></li>
+                        <li class="list-group-item"><i class="fab fa-facebook me-2"></i><a href="https://facebook.com/author">Facebook</a></li>
+                        <li class="list-group-item"><i class="fas fa-phone me-2"></i><a href="tel:+1234567890">Phone: +123-456-7890</a></li>
+                        <li class="list-group-item"><i class="fab fa-youtube me-2"></i><a href="https://youtube.com/author">YouTube</a></li>
+                        <li class="list-group-item"><i class="fab fa-instagram me-2"></i><a href="https://instagram.com/author">Instagram (or your other social)</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partner Section -->
+    <!-- Partner Section with Newsletter Signup -->
     <section class="partner py-5 bg-light" id="partner">
         <div class="container">
-            <h2 class="text-center mb-4">Become a Partner</h2>
-            <p class="text-center">Join us in spreading the word—affiliates, resellers, or collaborators welcome!</p>
-            <form action="https://formspree.io/your-email@example.com" method="POST" class="row g-3 justify-content-center">
+            <h2 class="text-center mb-4">Become a Partner & Signup for Newsletter</h2>
+            <p class="text-center">Join us in spreading the word—affiliates, resellers, or collaborators welcome! Signup for updates on new books and tracts.</p>
+            <form action="https://formspree.io/f/mdkwwoyp" method="POST" class="row g-3 justify-content-center">
                 <div class="col-md-4">
                     <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                 </div>
@@ -641,13 +714,18 @@
     <!-- Footer -->
     <footer class="footer py-3 bg-dark text-white text-center">
         <div class="container">
-            <p>Powered by WEALTHY WEB SOLUTIONS</p>
-            <img src="logo.png" alt="Your Logo" width="100" class="mb-2">
+          <p>Jesus Andreious Army <br> Suit D1, Bobsar Complex 4 Michika Street, off Ahmadu Bello Way Area 11, Fct Abuja Nigeria.</p>
             <p>&copy; 2025 Jerry Emeseh Books. All rights reserved.</p>
+
+<p>Powered by</p>
+            <img src="logo.png" alt="WEALTHY WEB SOLUTIONS Logo" width="100" class="mb-2">
         </div>
     </footer>
 
-    <!-- Bootstrap JS CDN -->
+    <!-- Back to Top Button -->
+    <button onclick="topFunction()" id="backToTop" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Bootstrap JS CDN (Moved to end for better performance) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Disqus JS -->
     <script>
@@ -662,7 +740,7 @@
             (d.head || d.body).appendChild(s);
         })();
     </script>
-    <!-- Custom JS for smooth scrolling and basic interactivity -->
+    <!-- Custom JS for smooth scrolling, back to top, and interactivity -->
     <script>
         // Smooth scrolling for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -673,6 +751,21 @@
                 });
             });
         });
+
+        // Back to Top Button
+        let mybutton = document.getElementById("backToTop");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
     </script>
 </body>
 </html>
