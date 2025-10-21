@@ -51,10 +51,12 @@
     }
 
     .card-img-top {
-        height: 300px;
-        object-fit: cover;
-    }
-
+  width: 100%;
+  height: 250px; /* consistent height for all cards */
+  object-fit: contain; /* ensures the full image shows */
+  background-color: #f8f9fa; /* soft background behind transparent areas */
+  border-radius: 10px 10px 0 0;
+}
     .footer img {border-radius:50%;border:2px solid var(--gold)}
 
     .hero::before {
